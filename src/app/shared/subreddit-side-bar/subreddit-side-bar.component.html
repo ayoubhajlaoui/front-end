@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="sidebar-view-subreddit">
+    <div style="color: black; font-weight: bold">Browse Topics</div>
+    <hr />
+    <span *ngFor="let subreddit of subreddits">
+        <div class='row'>
+        <div class='col-md-8'>
+        <span class="subreddit-text" ><a href="/view-subreddit/{{subreddit.id}}">{{subreddit.name}}</a>
+            
+        </span>
+        </div>
+
+        <div class='col-md-1'>
+        <button class="btn" (click)="deleteSubreddit(subreddit.id)"><i class="fa fa-trash"></i> </button>
+        </div>
+    </div>
+        <hr />
+    </span>
+    <div style="text-align: center" *ngIf="displayViewAll">
+        <a style="font-weight: bold" routerLink="/list-subreddits">View All</a>
+    </div>
+
+   
+</div>
+

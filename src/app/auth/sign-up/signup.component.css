@@ -1,0 +1,45 @@
+body {
+    background:url("NCMflq.png"), url("I5VuW6.png") ;
+    background-position: left, right bottom;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 50%, 30%;
+  }
+  
+  html{
+     
+      background:url("itface.jpg") no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+  }
+
+
+
+.register-section{
+   
+    padding-left: 700px;
+}
+.card-header{
+    color: #1EFFC1;
+    background-color:#2f4961;
+}
+
+.sign-up {
+    background-color: #2f4961;
+    border-color: #2f4961;
+    color: #1EFFC1;
+    fill: #2f4961;
+    border: 1px solid;
+    border-radius: 4px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    line-height: 24px;
+    text-transform: uppercase;
+    padding: 3px 16px;
+    opacity: 1;
+  }

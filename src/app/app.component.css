@@ -1,0 +1,11 @@
+/* :host ::ng-deep {
+  filter: invert(1) hue-rotate(180deg);
+
+  } */
+  /* :root ::ng-deep img {
+	filter: invert(1) hue-rotate(180deg);
+	
+  
+	} */
+
+ 

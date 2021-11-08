@@ -1,0 +1,36 @@
+<html>
+<head>
+<meta name="description" content="CSS Tabs" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/2.0.1/normalize.css">
+<link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+<title>CSS Tabs</title>
+<meta charset=utf-8>
+</head>
+<body>
+  <div class="tabbed">
+    <input type="radio" name="tabs" id="tab-nav-1" checked>
+    <label for="tab-nav-1">POSTS</label>
+    <input type="radio" name="tabs" id="tab-nav-2">
+    <label for="tab-nav-2">PROFILE</label>
+    <input type="radio" name="tabs" id="tab-nav-3">
+    <label for="tab-nav-3">ME</label>
+    <input type="radio" name="tabs" id="tab-nav-4">
+    <label for="tab-nav-4">FILES</label>
+    <div class="tabs">
+      <div><h2>Posts</h2> <app-post-tile [posts]="this.posts$"></app-post-tile></div>
+      <div><h2>Profile</h2><app-seeuser></app-seeuser></div>
+      <div><h2>Javascript</h2>
+        <!-- <app-filemanager></app-filemanager> -->
+        <app-manager *ngIf="showTabs"></app-manager>
+        
+        <!-- <app-side-bar></app-side-bar>
+        <app-subreddit-side-bar></app-subreddit-side-bar> -->
+
+      </div>
+      <div><h2>{{this.key}}</h2>
+        <app-newcomponent *ngIf="showTabs"></app-newcomponent></div>
+    </div>
+  </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.6/prefixfree.min.js"></script>
+</body>
+</html>

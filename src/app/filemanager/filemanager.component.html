@@ -1,0 +1,39 @@
+<div class="sidebar-view-subreddit">
+  <div style="color: black; font-weight: bold">Browse Files</div>
+  <hr />
+  <span *ngFor="let file of files">
+     <span class="subreddit-text">
+        <a href="{{ file.url }}">{{ file.name }}</a>
+      </span>
+      <hr />
+  </span>
+  <div style="text-align: center" *ngIf="displayViewAll">
+      <a style="font-weight: bold" routerLink="/newcomponent">View All</a>
+  </div>
+
+ 
+</div>
+
+    <!-- <div class="container">
+        <div class="col-md-12">
+          <div class="popup-gallery" *ngFor="let file of files">
+            <a href="#" title="Photo 1"><img src="https://via.placeholder.com/128x100/FF4500" alt=""></a>
+           
+          </div>
+        </div>
+      </div> -->
+      
+      
+        
+        
+
+
+
+
+
+
+
+
+    <!-- <div style="text-align: center" *ngIf="displayViewAll">
+        <a style="font-weight: bold" routerLink="/list-subreddits">View All</a>
+    </div> -->

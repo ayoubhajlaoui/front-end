@@ -1,0 +1,46 @@
+<div class="home ">
+    <div class="header">
+
+      <div class="input-group">
+        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" [(ngModel)]="key"
+        aria-describedby="search-addon" />
+        <button type="button" class="btn btn-outline-primary" (click)="updateKey()">search</button>
+      </div>
+      <h1>Dashboard</h1>
+      <div class="content">
+        <div class="total-task-chart">
+          <div class="chart" style="display:inline-block" *ngIf="doughnutChartData">
+            <canvas
+              baseChart
+              [data]="doughnutChartData"
+              [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType"
+              [options]="doughnutChartOptions"
+              [colors]="doughnutChartColor"
+            >
+            </canvas>
+          </div>
+          <div class="total-task">
+            <p class="data">100</p>
+            <p class="data-type">Tasks</p>
+          </div>
+        </div>
+      </div>  
+        <div>
+          <!-- <div *ngFor="let n of typeData" class="total-task-analytics">
+            <div class="display" ></div>
+            <div style="display:contents">
+              <p class="data" >{{ n.count }} %</p>
+              <p class="data-type" >{{ n.type }}</p>
+            </div>
+          </div> -->
+        </div>
+      
+    </div>
+
+    <app-list (refreshEmitter)="refreshEmitter()"></app-list>
+  </div>
+  
+
+  
+  

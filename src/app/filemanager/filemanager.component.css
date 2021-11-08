@@ -1,0 +1,47 @@
+.sidebar-view-subreddit {
+    width: 230px;
+    height: 242px;
+    --post-line-color: #ccc;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #878A8C;
+    position: relative;
+    border-radius: 4px;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .sidebar-view-subreddit {
+    height: fit-content;
+  }
+
+
+  /* body{margin-top:20px;}
+
+  .popup-gallery a img {
+      margin: 2px 0;
+      width:80px;
+      height:70px;
+      
+      display: inline;
+      line-height: 1.42857143;
+      background-color: #fff;
+      -webkit-transition: border .2s ease-in-out;
+      -o-transition: border .2s ease-in-out;
+      transition: border .2s ease-in-out;
+  }
+  
+  .popup-gallery a img:hover {
+      opacity: 0.6;
+      filter: alpha(opacity=60); 
+  }
+
+   .icon {
+    max-height: 180px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: top
+  } */

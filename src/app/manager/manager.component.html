@@ -1,0 +1,166 @@
+<div class='header'><app-header></app-header></div>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" *ngIf="showBars">
+    <a class="navbar-brand" style="color:white;">User Manager</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor02">
+       <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+             <a class="nav-link" (click)="onAddUser()">Add User <span class="sr-only">(current)</span></a>
+          </li>
+       </ul>
+       <form class="form-inline my-2 my-lg-0">
+          <input type="search" (ngModelChange)="searchUsers(key.value)" #key="ngModel" ngModel name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search users..." required>
+       </form>
+    </div>
+  </nav>
+  
+<div class="body">
+
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container" id="main-container">
+   
+   <div class="row">
+      
+      <div class="row">
+        
+         <div *ngIf="users?.length == 0" class="col-md-12">
+            <div class="alert alert-info" role="alert">
+               <h4 class="alert-heading">NO USERS!</h4>
+               <p>No Users were found.</p>
+            </div>
+         </div>
+      </div>
+
+      <!-- <div class='col-md-3' id='bars' *ngIf="showBars">
+
+         <div class='sub'>
+            <app-side-bar></app-side-bar>
+            <app-subreddit-side-bar></app-subreddit-side-bar>
+         </div>
+         <div class='sub'>
+            <app-filemanager></app-filemanager>
+         </div>
+      </div>
+
+</div>
+       -->
+      
+
+        <div  *ngFor="let user of users" class='col-md-12 col-xl-6' id='users'>
+
+         
+            <div class="card m-b-30">
+                <div class="card-body row">
+                    <div class="col-6">
+                        <a href=""><img src="{{user.imageUrl}}" alt="" class="img-fluid rounded-circle w-60"></a>
+                        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+                           <mat-button-toggle id="userState" value="disable" (click)="disableAccount(user)"></mat-button-toggle>
+                                                     
+                         </mat-button-toggle-group>
+                         
+                    </div>
+                    <div class="col-6 card-title align-self-center mb-0">
+                        <h5>{{user?.username}}</h5>
+                        <p class="m-0">{{user?.projectTitle}}</p>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><i class="fa fa-envelope float-right"></i>Email : {{user?.email}}</li>
+                    <li class="list-group-item"><i class="fa fa-phone float-right"></i>Phone : {{user?.phone}}</li>
+                </ul>
+                <div class="card-body">
+                    <div class="float-right btn-group btn-group-sm">
+                        <a (click)="onOpenModal(user, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+                        <a (click)="onOpenModal(user, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                    </div>
+                    <ul class="social-links list-inline mb-0">
+                        <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-facebook-f"></i></a></li>
+                        <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Skype"><i class="fa fa-skype"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      
+      
+        
+</div>    
+  
+  <!-- Edit Modal -->
+<div class="modal fade" id="updateUserModal" tabindex="-1" role="dialog" aria-labelledby="userEditModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+       <div class="modal-content">
+          <div class="modal-header">
+             <h5 class="modal-title" id="updateUserModalLabel">Edit User {{editUser?.username}}</h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+             </button>
+          </div>
+          <div class="modal-body">
+             <form #editForm="ngForm">
+                <div class="form-group">
+                   <label for="name">Name</label>
+                   <input type="text" ngModel="{{editUser?.username}}" name="username" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Userame">
+                </div>
+                <input type="hidden" ngModel="{{editUser?.userId}}" name="id" class="form-control" id="id" placeholder="Email">
+                
+                <div class="form-group">
+                   <label for="email">Email Address</label>
+                   <input type="email" ngModel="{{editUser?.email}}" name="email" class="form-control" id="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                   <label for="phone"> projectTitle</label>
+                   <input type="text" ngModel="{{editUser?.projectTitle}}" name="projectTitle" class="form-control" id="projectTitle" placeholder="Project title">
+                </div>
+                <div class="form-group">
+                   <label for="phone">Phone</label>
+                   <input type="text" ngModel="{{editUser?.phone}}" name="phone" class="form-control" id="phone" name="phone" placeholder="Phone">
+                </div>
+                <div class="form-group">
+                   <label for="phone">Image URL</label>
+                   <input type="text" ngModel="{{editUser?.imageUrl}}" name="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL">
+                </div>
+                <div class="modal-footer">
+                   <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                   <button (click)="onUpdateUser(editForm.value)" data-dismiss="modal" class="btn btn-primary" [disabled]="hasPermission==false" >Save changes</button>
+                </div>
+             </form>
+          </div>
+       </div>
+    </div>
+    
+   
+</div>
+   
+  
+  <!-- Delete Modal -->
+  <div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+             <h5 class="modal-title" id="deleteModelLabel">Delete User</h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+             </button>
+          </div>
+          <div class="modal-body">
+             <p>Are you sure you want to delete user {{deleteUser?.username}}?</p>
+             <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button (click)="onDeleteUser(deleteUser?.userId)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+             </div>
+          </div>
+      </div>
+    </div>
+  
+  </div>
+  
+  
+
+

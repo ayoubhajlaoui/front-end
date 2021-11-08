@@ -1,0 +1,85 @@
+<app-header></app-header>
+<div class="body"> 
+<div class="container">
+  <hr /><hr /><hr /><hr />
+    <div class="row">
+      <hr />
+      <!-- <div class="col-md-9">
+        <h2>List of Topics</h2>
+        <ul>
+          <li *ngFor="let subreddit of subreddits"><a routerLink="/view-subreddit/{{subreddit.id}}">{{subreddit.name}}</a>
+
+           
+
+
+
+          </li>
+        </ul>
+      </div> -->
+      <div class="col-md-6">
+        <div class="header">
+    
+          <h2>
+            <span style="margin-left: 15px; margin-top: 15px; " class="label">TOPIC
+              <span style= "color: white;">LIST</span>
+              <div class="input-group" id='input'>
+                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" 
+                aria-describedby="search-addon" id='search'/>
+                <button type="button" class="btn btn-outline-primary" >search</button>
+                </div>
+            </span>
+          </h2>
+        
+        
+        
+        
+        
+        </div>
+        
+        <!-- <app-leftcolumn></app-leftcolumn> -->
+        
+
+  <div class=' col-md-8' id='scroll'>
+        <div *ngFor="let subreddit of subreddits" class="card card-outline-primary" id='scroll'>
+            <h4 class="card-header">
+                {{subreddit.name}}
+                <span class="pull-xs-right tag tag-pill tag-primary">
+                    {{subreddit.numberOfPosts}}
+                </span>
+            </h4>
+            <div class="card-text p-a-1">{{subreddit.description}}</div>
+            <span>
+              <button class="btnCreateSubreddit" (click)="deleteSubreddit(subreddit.id)" >Delete</button>
+              <button class="login" (click)="viewPosts(subreddit.id)">View Posts</button>
+            </span>
+        </div>  
+
+        <!-- <div class="form-inline pull-xs-left m-r-1">
+            <select class="form-control" [value]="productsPerPage" 
+                    (change)="changePageSize($event)">
+                <option value="3">3 per Page</option>
+                <option value="4">4 per Page</option>
+                <option value="6">6 per Page</option>
+                <option value="8">8 per Page</option>
+            </select>
+        </div> -->
+        
+        <!-- <div class="btn-group pull-xs-right">
+        <button *counter="let page of pageCount" (click)="changePage(page)"
+            class="btn btn-outline-primary" [class.active]="page == selectedPage">
+                    {{page}}
+            </button>
+        </div>      -->
+    </div>
+
+  </div>
+
+
+
+    <div class='col-md-4' >
+        <app-side-bar></app-side-bar>
+        <app-filemanager *ngIf="show"></app-filemanager>
+      </div>
+    </div>
+  </div>
+</div>

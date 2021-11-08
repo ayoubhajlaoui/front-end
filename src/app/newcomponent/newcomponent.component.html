@@ -1,0 +1,139 @@
+<div class="body">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-9">
+                <!-- <app-header2></app-header2> -->
+                <hr/>
+                <div class="header">
+    
+                    <h2>
+                        <span style="margin-left: 15px; margin-top: 15px; " class="label">FILE
+                            <span style= "color: white;">STORE</span></span>
+                    </h2>
+                
+                
+                
+                
+                
+                </div>
+
+
+                <div class="leftbar" *ngIf="showBars">
+                    <ul id="menu">
+                        <li><div>
+                                <a class="link1" routerLink="/admin"> <span class="label"
+                                    style="margin-left: 15px;">Home</span>
+                                </a>
+                            </div></li>
+                        <li><div>
+                                <a class="link1" href="" (click)="getAllFiles()"><span
+                                    style="margin-left: 15px;" class="label">All Files</span></a>
+                            </div></li>
+                        <li><div>
+                                <span class="label" style="margin-left: 15px;">Categories</span>
+                            </div>
+                            <ul>
+                                
+                                <li><a class="label"
+                                    href=""><span
+                                        class="label" style="margin-left: 30px;"></span></a>
+                                </li>
+                                
+                            </ul></li>
+                        <li><div>
+                                <span class="label" style="margin-left: 15px;">Contact Us</span>
+                
+                            </div></li>
+                    </ul>
+                    <form class="search">
+                        <script src="src/assets/js/animation.js" type="text/javascript"></script>
+                <script src="src/assets/js/jquery-1.9.1.js" type="text/javascript"></script>
+                       
+                        <input id="text"
+                            type="text" name="keyWord" size="12" [(ngModel)]="username" /> <span
+                            class="tooltip_message">?</span>
+                        
+                        <input id="submit" type="submit" value="Search" (click)="getFilesByUsername()" />
+                    </form>
+                
+                
+                </div>
+                
+                <!-- <app-leftcolumn></app-leftcolumn> -->
+                <!-- <div id="centered">
+                    <span class="label">Featured Files</span>                
+                    <table>
+                        <tr>
+                            <td><span class="tooltip_img1"><img
+                                    src="images/A9781430248064-small_3.png" /></span></td>
+                            <td><img src="images/A9781430239963-small_1.png" /></td>
+                            <td><img src="images/A9781430247647-small_3.png" /></td>
+                            <td><img src="images/A9781430231684-small_8.png" /></td>
+                            <td><img src="images/A9781430249474-small_1.png" /></td>
+                        </tr>
+                        <tr>
+                            <td><img src="A9781430248187-small_1.png" /></td>
+                            <td><img src="A9781430243779-small_2.png" /></td>
+                            <td><img src="A9781430247401-small_1.png" /></td>
+                            <td><img src="A9781430246596-small_1.png" /></td>
+                            <td><img src="A9781430257349-small_1.png" /></td>
+                        </tr>
+                    </table>
+                </div> -->
+                <div id="centered">
+
+
+                <table id="grid">
+                    <thead>
+                        <tr>
+                            <th id="th-title">File Title</th>
+                            <th id="th-author">Type</th>
+                            <th id="th-publisher">Size</th>
+                        </tr>
+                    </thead>
+            
+            
+                    <tbody *ngFor="let file of files">
+                        
+                        <tr>
+                            <th scope="row" id="r100">{{file.name}}</th>
+                            <th scope="row" id="r100">{{file.type}}</th>
+                            <th scope="row" id="r100">{{file.size}}</th>
+                           
+                        </tr>
+            
+                       
+            
+                    </tbody>
+            
+                </table>
+            </div>
+
+
+
+
+
+                <!-- <div class="col-md-9">
+                    <h2>List of Files</h2>
+                    <ul>
+                      <li *ngFor="let file of files"><a routerLink="">{{file.name}}</a>
+                      </li>
+                    </ul>
+                </div> -->
+                
+            
+                
+            </div>     
+           
+
+        <div class="col-md-3" *ngIf="showBars">
+        <!-- <hr/><hr/> -->
+            <app-side-bar></app-side-bar>
+            <app-subreddit-side-bar></app-subreddit-side-bar>
+          </div>
+        </div>
+        
+
+    </div>
+</div>

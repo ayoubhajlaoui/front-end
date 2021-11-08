@@ -1,0 +1,68 @@
+body{
+    background-image: url(654483.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    
+  }
+  *
+  { text-align : center ;
+  color: white;
+  }
+  .box{
+    width: 390px;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-35%);
+    background: #191919;opacity: .75;
+    text-align: left;
+  }
+  
+  .box b{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 5000;
+  }
+  .box input[type = "text"],.box textarea[id="motivation"],.box input[type = "number"]{
+    border:0;
+    background: none;
+    
+    margin: 20px auto;
+    text-align: left;
+    border: 2px solid #000000;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+  }
+  
+  .box input[type = "number"]:focus,.box input[type = "text"]:focus,.box textarea[id="motivation"]:focus{
+    width: 280px;
+    border-color: #808080;
+    
+  
+  }
+  
+  .box input[type = "submit"]{
+    border:0;
+    background: none;
+    
+    margin: 20px auto;
+    text-align: left;
+    border: 2px solid #000000;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+  }
+  
+  
+  
+  .box input[type = "submit"]:hover{
+    background: #000000;
+  }
